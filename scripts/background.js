@@ -23,7 +23,10 @@ chrome.storage.local.get("locations",  function(result){
 
     if (match_result){
           var sidebar;
-          sidebar = $("<div id='sidebar'><span>" + result.locations[i].alert + "<span></div>");
+          sidebar = $("<div id='sidebar'><table><tr>" +
+                      "<td class=\"notification\">" + result.locations[i].alert + "</td>" +
+                      "<td class=\"close-btn\">&#10006;</td>" +
+                      "<tr></table></div>");
           sidebar.css({
             'position': 'fixed',
             'right': '0px',
@@ -33,14 +36,35 @@ chrome.storage.local.get("locations",  function(result){
             'height': '50px',
             'background-color': 'rgba(255,0,0,0.7)',
             'text-align': 'center',
-            'display': 'table'
+            'display': 'table',
+            'pointer-events': 'none'
           });
 
-          sidebar.find('span').css({
-            'display': 'table-cell',
-            'vertical-align': 'middle',
+          sidebar.find('table').css({
+            'height': '100%',
+            'width': '100%',
+            'vertical-align': 'middle'
+          });
+
+          sidebar.find('td').css({
+            'height': '100%',
             'color': 'white',
             'font-weight': 'bold'
+          });
+
+          sidebar.find('.notification').css({
+            'width': '90%'
+          });
+
+          sidebar.find('.close-btn').css({
+            'font-size': 'x-large',
+            'cursor': 'pointer',
+            'pointer-events': 'all'
+          });
+
+
+          sidebar.find('.close-btn').click(function() {
+            sidebar.remove();
           });
 
           $('body').append(sidebar);
