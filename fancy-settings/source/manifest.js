@@ -9,7 +9,9 @@ this.manifest = {
             "type": "description",
             "text": "Site URL specifies the URL you want to match. You can use <strong>*</strong> as a wild card. \
             For example, <strong>http*://*.ca</strong> will match all sites in .ca domain. \
-            Alert text specifies the text that will appear atop of the bar."
+            Alert text specifies the text that will appear atop of the bar.\
+            Similarly, use a regular expression in the Page Content field, to show the notification bar only \
+            when certain content is present."
         },
         {
             "tab": "Site List",
@@ -18,6 +20,13 @@ this.manifest = {
             "type": "text",
             "label": "Site URL",
             "text": "Example: http://google.*"
+        },
+        {
+            "tab": "Site List",
+            "group": "Add New Alert",
+            "name": "site_contents",
+            "type": "text",
+            "label": "Page Contents"
         },
         {
             "tab": "Site List",
@@ -45,7 +54,8 @@ this.manifest = {
     "alignment": [
         [
             "site_url",
-            "site_alert"
+            "site_alert",
+            "site_contents"
         ]
     ]
 };

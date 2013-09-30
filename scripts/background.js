@@ -13,13 +13,22 @@ chrome.storage.local.get("locations",  function(result){
   console.log("Loaded page: " + document.URL);
 
   for (var i = 0; i < result.locations.length; i++) {
-    var re_str =  result.locations[i].url.ReplaceAll("*", '[\\s\\S]+?')
-    var re = new RegExp(re_str, "g");
+    var re_str_url =  result.locations[i].url.ReplaceAll("*", '[\\s\\S]+?')
+    var re_url = new RegExp(re_str_url, "g");
 
-    match_result = re.test(document.URL);
+    match_result = re_url.test(document.URL);
 
-    console.log("Checked against: " + re);
+    console.log("Checked against: " + re_url);
     console.log(match_result);
+
+    if (match_result && typeof result.locations[i].contents != 'undefined' && result.locations[i].contents != ''){
+      var re_str_contents =  result.locations[i].contents.ReplaceAll("*", '[\\s\\S]+?')
+      var re_contents = new RegExp(re_str_contents, "g");
+
+      console.log("Checking against the page contents regex as well: " + re_contents);
+      match_result = re_contents.test($("html").html());      
+      console.log(match_result);
+    }
 
     if (match_result){
           var sidebar;
@@ -49,7 +58,9 @@ chrome.storage.local.get("locations",  function(result){
           sidebar.find('td').css({
             'height': '100%',
             'color': 'white',
-            'font-weight': 'bold'
+            'text-align': 'center',
+            'font-weight': 'bold',
+            'font-size': 'large',
           });
 
           sidebar.find('.notification').css({
