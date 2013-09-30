@@ -1,6 +1,6 @@
 {
 	"name": "Site Alert",
-	"version": "0.1",
+	"version": "0.1.1",
 	"manifest_version" : 2,
 	"description": "Shows a fixed bar atop of pages you specify to provide a visual alert.",
 	"permissions": [
