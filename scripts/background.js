@@ -25,7 +25,7 @@ chrome.storage.local.get("locations",  function(result){
       var re_str_contents =  result.locations[i].contents.ReplaceAll("*", '[\\s\\S]+?')
       var re_contents = new RegExp(re_str_contents, "g");
 
-      console.debug("Checking against the page contents regex as well: " + re_contents);
+      console.log("Checking against the page contents regex as well: " + re_contents);
       match_result = re_contents.test($("html").html());      
       console.debug(match_result);
     }

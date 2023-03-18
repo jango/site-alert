@@ -1,32 +1,34 @@
 {
-	"name": "Site Alert",
-	"version": "0.1.1",
-	"manifest_version": 3,
-	"description": "Shows a fixed bar atop of pages you specify to provide a visual alert.",
-	"permissions": [
-		"storage"
-	],
-	"host_permissions": [
-		"*://*/*"
-	],
-	"content_scripts": [
-		{
-			"matches": ["*://*/*"],
-			"js": [
-				"lib/jquery-3.6.4.min.js",
-				"scripts/background.js"
-			],
-			"run_at": "document_end",
-			"all_frames": true
-		}
-	],
-	"icons": {
-		"16": "icons/16.png",
-		"48": "icons/48.png",
-		"128": "icons/128.png"
-	},
-	"options_ui": {
-		"page": "fancy-settings/source/index.html",
-		"open_in_tab": true
-	}
+    "name": "Site Alert",
+    "version": "0.1.1",
+    "manifest_version": 3,
+    "description": "Shows a fixed bar atop of pages you specify to provide a visual alert.",
+    "permissions": [
+        "storage"
+    ],
+    "host_permissions": [
+        "*://*/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*/*"
+            ],
+            "js": [
+                "lib/jquery-3.6.4.min.js",
+                "scripts/background.js"
+            ],
+            "run_at": "document_end",
+            "all_frames": true
+        }
+    ],
+    "icons": {
+        "16": "icons/16.png",
+        "48": "icons/48.png",
+        "128": "icons/128.png"
+    },
+    "options_ui": {
+        "page": "html/options.html",
+        "open_in_tab": true
+    }
 }

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../lib/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container p-5">
+        <div class="row mb-3 text-end">
+          <div class="col-sm-12">
+            <button id="add-new-main-btn" type="submit" class="btn btn-primary">Add Alert</button>
+          </div>
+    </div>
+
+    <table id="alerts" class="table">
+        <thead>
+            <tr>
+                <th>URL Regex</th>
+                <th>Page Regex</th>
+                <th>Alert Text</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add New Item</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+    <div class="modal-body">
+
+          <form>
+            <div class="mb-3">
+              <label for="site-url-field" class="col-form-label">What URL do you want to match? You can use <strong>*</strong> as a wild card. For example, <strong>http*://*.ca</strong> will match all sites in .ca domain.</label>
+              <p></p>
+              <input type="text" class="form-control" id="site-url-field">
+              
+            </div>
+    <div class="mb-3">
+                <label for="page-text-field" class="col-form-label">What page content do you want to match? If populated, both URL and the page content need to match for alert to appear:</label>
+                <input type="text" class="form-control" id="page-text-field">
+              </div>
+
+    <div class="mb-3">
+              <label for="alert-text-field" class="col-form-label">What text should appear in the alert?</label>
+              <input type="text" class="form-control" id="alert-text-field">
+            </div>
+    </form>
+    </div>
+    <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="save-changes-btn">Save changes</button>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="../lib/jquery-3.6.4.min.js"></script>
+    <script src="../lib/bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../scripts/options.js"></script>
+</body>
+
+</html>
