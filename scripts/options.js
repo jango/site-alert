@@ -15,11 +15,11 @@ function render_alert_table() {
                 if (typeof result.locations[i].contents == 'undefined') {
                     result.locations[i].contents = "";
                 }
-
+                
                 add_alert_to_ui(result.locations[i].url, result.locations[i].contents, result.locations[i].alert);
             }
         }
-    };
+    });
 }
 
 /** 
@@ -61,6 +61,8 @@ const delete_alert = async (url) => {
             render_alert_table();
             resolve();
         });
+
+
     });
 };
 
@@ -92,6 +94,8 @@ const add_alert = async (url, contents, text) => {
             render_alert_table();
             resolve();
         });
+
+
     });
 };
 
@@ -118,7 +122,10 @@ $(document).ready(function () {
         $('#myModal').modal('show');
     });
 
+
+
     $("#save-changes-btn").click(async function () {
+
         url = $("#myModal").data('url')
         console.log(url);
 
