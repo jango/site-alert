@@ -94,8 +94,6 @@ const add_alert = async (url, contents, text) => {
             render_alert_table();
             resolve();
         });
-
-
     });
 };
 
