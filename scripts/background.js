@@ -27,7 +27,7 @@ chrome.storage.local.get("locations",  function(result){
 
       console.log("Checking against the page contents regex as well: " + re_contents);
       match_result = re_contents.test($("html").html());      
-      console.log(match_result);
+      console.debug(match_result);
     }
 
     if (match_result){
